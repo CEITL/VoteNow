@@ -16,34 +16,52 @@
 	<script src="js/load.js" type="text/javascript"></script>
 </head>
 <body>
-	<div id="header">
-	</div>
+	<header>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container"> 
+				<div class="navbar-header">
+					<a class="navbar-brand" href="index.html">Vote! NOW</a>
+				</div>
+				<h4 class="navbar-text">晚餐吃什麼？</h4> 
+			</div>
+		</nav>
+	</header>
 	<div class="container">
-	<div class="row">
-		<div class="col-xs-12 col-sm-6">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Vote</h3>
-				</div>
-				<div class="panel-body">
-					<canvas id="vote" width="600" height="600"></canvas>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Vote</h3>
+					</div>
+					<div class="panel-body">
+						<canvas id="vote" width="480" height="480"></canvas>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="col-xs-12 col-sm-6">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Result</h3>
-				</div>
-				<div class="panel-body">
-					<canvas id="result" width="600" height="600"></canvas>
+			<div class="col-xs-12 col-sm-12 col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Result</h3>
+					</div>
+					<div class="panel-body">
+						<canvas id="result" width="480" height="480"></canvas>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	</div>
-	<div id="footer">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">History</h3>
+					</div>
+					<div class="panel-body">
+						<canvas id="history" width="960" height="480"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
