@@ -1,4 +1,4 @@
-function drawResult() {
+$(document).ready(function(){
 	var canvas = document.getElementById('goodArea');
 	var context = canvas.getContext('2d');
 
@@ -24,7 +24,11 @@ function drawResult() {
 	context.fillStyle = 'pink';
 	context.fill();
 
-	var c = document.getElementById("candidate");
+	
+});
+
+function drawCandidate(id, img) {
+	var c = document.getElementById(id);
 	var ctx = c.getContext("2d");
 	ctx.beginPath();
 	ctx.arc(50 ,50,45,0,2*Math.PI);
@@ -32,7 +36,7 @@ function drawResult() {
 	ctx.stroke();
 
 	var thumbnail = new Image();
-	thumbnail.src = 'https://farm9.staticflickr.com/8712/buddyicons/107496845@N05_r.jpg?1426564871#107496845@N05'; 
+	thumbnail.src = img; 
 	thumbnail.width = c.width;
 	thumbnail.height = c.height ; 
 	thumbnail.onload = function(){
@@ -40,4 +44,4 @@ function drawResult() {
 		ctx.fillStyle = pattern;
 		ctx.fill();
 	};
-};
+}

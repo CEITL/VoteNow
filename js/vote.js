@@ -1,7 +1,4 @@
 $(document).ready(function(){
-	$(".draggable").draggable({
-		revert: "invalid"
-	});
 	$(".droppable").droppable({
 		drop: function( event, ui ) {
 			var from = $(ui.draggable[0]).attr('from');
