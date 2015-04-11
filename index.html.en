@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+</head>
+  <body>
+  	<div>
+    	<canvas id="goodArea" width="500" height="250" ></canvas>
+	</div>
+
+	<div>
+    	<canvas id="neutralArea" width="500" height="150"></canvas>
+	</div>
+
+	<div >
+    	<canvas id="badArea" width="500" height="250"></canvas>
+    </div>
+    <script>
+      var canvas = document.getElementById('goodArea');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.rect( 0, 0, canvas.width, canvas.height);
+      context.fillStyle = 'lightblue';
+      context.fill();
+
+      var neutralArea = document.getElementById('neutralArea');
+      var context = neutralArea.getContext('2d');
+
+      context.beginPath();
+      context.rect( 0, 0, canvas.width, canvas.height);
+      context.fillStyle = '#888888';
+      context.fill();
+
+
+      var canvas = document.getElementById('badArea');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.rect( 0, 0, canvas.width, canvas.height);
+      context.fillStyle = 'pink';
+      context.fill();
+
+      
+      </script>
+  </body>
