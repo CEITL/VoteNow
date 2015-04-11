@@ -1,5 +1,6 @@
 //Include libs
 var path = require('path');
+var bodyParser = require('body-parser');
 
 module.exports = function(webLib, webApp) {
 
@@ -7,6 +8,8 @@ module.exports = function(webLib, webApp) {
       webApp.use(webLib.static(__dirname + '/www'));
       webApp.use(webLib.static(__dirname + '/www/css'));
       webApp.use(webLib.static(__dirname + '/www/img'));
+      webApp.use(bodyParser.json());
+      webApp.use(bodyParser.urlencoded({ extended: false }));
 
       webApp.get('/', function(req, res) {
             res.sendFile('index.html');
@@ -21,5 +24,12 @@ module.exports = function(webLib, webApp) {
                               '404.html'
                         )
                   );
+      });
+
+      webApp.post('/recieve', function(req, res) {
+            console.log(req.body);
+            if(req.body.hasOwnProperty('name')) {
+                  res.send('Hello ' + req.body.name);
+            }
       });
 }

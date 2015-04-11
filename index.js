@@ -27,8 +27,10 @@ io.on('connect', function(socket) {
       });
 
       socket.on('disconnect', function() {
-            var client = clients[socket.id];
-            delete clients[socket.id];
-            console.log('socket disconnected(%s).', client.id);
+            if(typeof clients[socket.id] !== 'undefined') {
+                  var client = clients[socket.id];
+                  delete clients[socket.id];
+                  console.log('socket disconnected(%s).', client.id);
+            }
       });
 });
