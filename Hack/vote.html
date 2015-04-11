@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vote</title>
+
+  <link rel="stylesheet" href="C:\Users\Pinky\Desktop\Hack\bootstrap-3.3.4-dist\css\bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 35%;
+      margin: auto;
+  }
+  </style>
+
+</head>
+
+<body>
+<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">登入</button>
+<nav class="navbar navbar-default">
+
+    <div class="page-header">
+      <h1>Yo <small>Vote now</small></h1>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"</span>
+
+      
+  
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Yo Vote now Log in</h4>
+        </div>
+        <div class="modal-body">
+          <p>請輸入您的帳號密碼</p>
+        </div>
+      <form role="form">
+      <div class="form-group">
+        <label for="email">Account:</label>
+        <input type="email" class="form-control" id="email">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd">
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="1.jpg" alt="Chania">
+      <div class="carousel-caption">
+        <h3>候選人1號</h3>
+        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="2.jpg" alt="Chania">
+      <div class="carousel-caption">
+        <h3>候選人2號</h3>
+        <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="3.jpg" alt="Flower">
+      <div class="carousel-caption">
+        <h3>候選人1號</h3>
+        <p>Beatiful flowers in Kolymbari, Crete.</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="4.jpg" alt="Flower">
+      <div class="carousel-caption">
+        <h3>Flowers</h3>
+        <p>Beatiful flowers in Kolymbari, Crete.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+</div>
+    <div class="row">
+      <div class="col-sm-4" style="background-color:lavender;">候選人</div>
+      <div class="col-sm-4" style="background-color:lavenderblush;">人氣指數</div>
+      <div class="col-sm-4" style="background-color:lavender;">得票數</div>
+    </div>
+</nav>
+
+
+<div style="width:50%">
+      <div>
+        <canvas id="canvas" height="450" width="600"></canvas>
+      </div>
+</div>
+
+
+  <script>
+    var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+    var lineChartData = {
+      labels : ["January","February","March","April","May","June","July"],
+      datasets : [
+        {
+          label: "My First dataset",
+          fillColor : "rgba(220,220,220,0.2)",
+          strokeColor : "rgba(220,220,220,1)",
+          pointColor : "rgba(220,220,220,1)",
+          pointStrokeColor : "#fff",
+          pointHighlightFill : "#fff",
+          pointHighlightStroke : "rgba(220,220,220,1)",
+          data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+        },
+        {
+          label: "My Second dataset",
+          fillColor : "rgba(151,187,205,0.2)",
+          strokeColor : "rgba(151,187,205,1)",
+          pointColor : "rgba(151,187,205,1)",
+          pointStrokeColor : "#fff",
+          pointHighlightFill : "#fff",
+          pointHighlightStroke : "rgba(151,187,205,1)",
+          data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+        }
+      ]
+    }
+  window.onload = function(){
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myLine = new Chart(ctx).Line(lineChartData, {
+      responsive: true
+    });
+  }
+  </script>
+
+
+<!-- JavaScript Includes -->
+<script src="C:\Users\Pinky\Desktop\Hack\bootstrap-3.3.4-dist\js\jquery.min.js"></script>
+<script src="C:\Users\Pinky\Desktop\Hack\bootstrap-3.3.4-dist\js\transition.js"></script>
+<script src="C:\Users\Pinky\Desktop\Hack\bootstrap-3.3.4-dist\js\button.js"></script>
+<script src="C:\Users\Pinky\Desktop\Hack\bootstrap-3.3.4-dist\js\Chart.js"></script>
+<!-- JavaScript Test -->
+<script>
+$(function () {
+  $('.js-loading-button').on('click', function () {
+    var btn = $(this).button('loading')
+    setTimeout(function (){
+      btn.button('reset')
+    }, 3000)
+  })
+})
+</script>
+</body>
+</html>
