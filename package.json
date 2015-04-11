@@ -1,0 +1,26 @@
+{
+  "name": "VoteNow",
+  "version": "1.0.0",
+  "description": "Hackathon Taiwan 6th practice from CEITL, CE ,NTUST.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CEITL/VoteNow.git"
+  },
+  "author": "CEITL, CE, NTUST",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CEITL/VoteNow/issues"
+  },
+  "homepage": "https://github.com/CEITL/VoteNow",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "cookie-parser": "^1.3.4",
+    "express": "^4.12.3",
+    "multer": "^0.1.8",
+    "socket.io": "^1.3.5"
+  }
+}
