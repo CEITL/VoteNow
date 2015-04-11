@@ -1,5 +1,4 @@
 function drawResult() {
-	alert();
 	var canvas = document.getElementById('goodArea');
 	var context = canvas.getContext('2d');
 
