@@ -2,10 +2,18 @@ $(document).ready(function(){
 	var canvas = document.getElementById('goodArea');
 	var context = canvas.getContext('2d');
 
+
+	
 	context.beginPath();
 	context.rect( 0, 0, canvas.width, canvas.height);
 	context.fillStyle = 'lightblue';
 	context.fill();
+
+	context.font = 'bold 100pt Calibri';
+	context.fillStyle = 'white';
+	context.textAlign = 'right';
+    context.fillText('+1', canvas.width, canvas.height);
+
 
 	var neutralArea = document.getElementById('neutralArea');
 	var context = neutralArea.getContext('2d');
@@ -23,6 +31,12 @@ $(document).ready(function(){
 	context.rect( 0, 0, canvas.width, canvas.height);
 	context.fillStyle = 'pink';
 	context.fill();	
+
+	context.font = 'bold 100pt Calibri';
+	context.fillStyle = 'white';
+	context.textAlign = 'right';
+    context.fillText('-1', canvas.width, canvas.height);
+
 });
 
 function drawCandidate(id, name, img) {
