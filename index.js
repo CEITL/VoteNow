@@ -1,5 +1,6 @@
 //Include libs
 var express = require('express');
+var socket = require('socket.io');
 
 //Initail lib objects
 var webApp = express();
@@ -11,5 +12,23 @@ var webServer = webApp.listen(8080, function() {
       var host = webServer.address().address;
       var port = webServer.address().port;
 
-      console.log('CEITL web server is listening on port %s\n', port);
+      console.log('CEITL server is listening on port %s\n', port);
+});
+
+
+var io = socket(webServer);
+var clients = {};
+
+io.on('connect', function(socket) {
+      
+      socket.on('do_connect', function(data) {
+            clients[socket.id] = socket;
+            console.log('socket connected(%s).', socket.id);
+      });
+
+      socket.on('disconnect', function() {
+            var client = clients[socket.id];
+            delete clients[socket.id];
+            console.log('socket disconnected(%s).', client.id);
+      });
 });
