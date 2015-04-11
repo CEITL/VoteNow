@@ -22,26 +22,29 @@ $(document).ready(function(){
 	context.beginPath();
 	context.rect( 0, 0, canvas.width, canvas.height);
 	context.fillStyle = 'pink';
-	context.fill();
-
-	
+	context.fill();	
 });
 
-function drawCandidate(id, img) {
+function drawCandidate(id, name, img) {
 	var c = document.getElementById(id);
 	var ctx = c.getContext("2d");
+	
 	ctx.beginPath();
-	ctx.arc(50 ,50,45,0,2*Math.PI);
+	ctx.arc(50 ,50, 45, 0, 2*Math.PI);
 	ctx.lineWidth = 5;
 	ctx.stroke();
 
 	var thumbnail = new Image();
-	thumbnail.src = img; 
+	thumbnail.src = img;
 	thumbnail.width = c.width;
-	thumbnail.height = c.height ; 
+	thumbnail.height = c.height; 
 	thumbnail.onload = function(){
 		var pattern = ctx.createPattern(this, "repeat");
 		ctx.fillStyle = pattern;
 		ctx.fill();
 	};
+	
+	ctx.font = "20px";
+	ctx.textAlign = "center";
+	ctx.fillText(name, 50, 108);
 }

@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$(".droppable").droppable({
 		drop: function( event, ui ) {
+			var id = $(ui.draggable[0]).attr('id');
 			var from = $(ui.draggable[0]).attr('from');
 			var to = event.target.id;
 			$(ui.draggable[0]).attr('from', to);
@@ -31,7 +32,7 @@ $(document).ready(function(){
 				}
 			}
 			if (voteScore != 0) {
-				console.log(voteScore);
+				console.log('Candidate:' + id +', sum:' + voteScore);
 				// TODO send to server
 			};
 			
