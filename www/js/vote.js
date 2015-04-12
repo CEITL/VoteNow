@@ -41,8 +41,7 @@ $(document).ready(function(){
 					voteMinus = 0;
 				}
 			}
-			if (voteScore != 0) {
-				//console.log('Candidate:' + id +', sum:' + voteScore);
+			if (votePlus != 0 || voteMinus != 0) {
 				socket.emit('vote', { 'Candidate': id, 'votePlus': votePlus , 'voteMinus' : voteMinus });
 			};
 			

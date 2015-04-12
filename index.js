@@ -46,18 +46,8 @@ io.on('connect', function(socket) {
 
       socket.on('vote', function(data) {
             var candidateID = data.Candidate;
-            var val = data.sum;
-            if( val == 1 ) {
-                  scores[candidateID].Plus++;
-            } else if( val == -1 ) {
-                  scores[candidateID].Minus--;
-            } else if( val == 2 ) {
-                  scores[candidateID].Plus++;
-                  scores[candidateID].Minus++;
-            } else if( val == -2 ) {
-                  scores[candidateID].Plus--;
-                  scores[candidateID].Minus--;
-            }
+            scores[candidateID].Plus += data.votePlus;
+            scores[candidateID].Minus += data.voteMinus;
             socket.emit('calcute', scores);
       });
 });
