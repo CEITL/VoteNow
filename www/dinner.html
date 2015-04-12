@@ -33,22 +33,21 @@
                   	sumMinus += scores[index].Minus;
                   }
 
-                  var sumMax = sumPlus > Math.abs(sumMinus)?sumPlus:Math.abs(sumMinus);
+                  var sumMax = sumPlus-sumMinus;
                   var resultHeight = $('#result').attr('height');
                   var resultWidth = $('#result').attr('width');
                   for( var index in scores)
                   {
-                        if(index == 2) {
+
                               var Y = scores[index].Plus - scores[index].Minus ; 
                               var X = scores[index].Plus + scores[index].Minus ;
                               console.log('%s, %s', $('#result_'+index ).parent().css('top'), $('#result_'+index ).parent().css('left'));
-                              $('#result_'+index ).parent().css('top', Y/sumMax*resultHeight+'px');
-                              $('#result_'+index ).parent().css('left', X/sumMax*resultWidth+'px');
+                              $('#result_'+index ).parent().css('top', (resultHeight-Y/sumMax*resultHeight)+'px');
+                              $('#result_'+index ).parent().css('left', 0.5*resultWidth+X/sumMax*resultWidth-35+'px');
 
                               console.log('x: %s, y: %s', X, Y);
                               console.log('max %s', sumMax);
                               console.log('New: %s, %s', Y/sumMax*resultHeight, X/sumMax*resultWidth);
-                        }
                               
                   }
 
