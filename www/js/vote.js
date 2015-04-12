@@ -32,8 +32,8 @@ $(document).ready(function(){
 				}
 			}
 			if (voteScore != 0) {
-				console.log('Candidate:' + id +', sum:' + voteScore);
-				// TODO send to server
+				//console.log('Candidate:' + id +', sum:' + voteScore);
+				socket.emit('vote', { 'Candidate': id, 'sum': voteScore });
 			};
 			
 		}
