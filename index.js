@@ -24,8 +24,7 @@ var candidates = JSON.parse(fs.readFileSync('./www/candidateData.JSON', 'utf8'))
 for(var element in candidates) {
       var obj = candidates[element];
       if(obj.hasOwnProperty('CandidateID')) {
-          scores[obj.CandidateID] = { 'Plus': 0 }; 
-          scores[obj.CandidateID] = { 'Minus': 0 }; 
+          scores[obj.CandidateID] = { 'Plus': 0, 'Minus': 0 }; 
       }
 }
 
