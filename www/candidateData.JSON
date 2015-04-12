@@ -1,0 +1,26 @@
+[{
+	"VoteID" : 12234 ,
+	"VoteName" : "晚餐吃什麼" ,
+	"CandidateID" : 1,
+	"CandidateName" : "PIZZA",
+	"CandidatePic" : "http://i.imgur.com/HSZ7DV9.jpg?2"
+
+} 
+, 
+{
+	"VoteID" : 12234 ,
+	"VoteName" : "晚餐吃什麼" ,
+	"CandidateID" : 2,
+	"CandidateName" : "麵",
+	"CandidatePic" : "http://i.imgur.com/cA4V2L9.jpg?2"
+
+}
+,
+{
+	"VoteID" : 12234 ,
+	"VoteName" : "晚餐吃什麼" ,
+	"CandidateID" : 3,
+	"CandidateName" : "漢堡",
+	"CandidatePic" : "http://i.imgur.com/91dpcL0.jpg?2"
+
+}]
