@@ -1,4 +1,4 @@
-(function($) {
+function drawHistory(data) {
       var drawingData = [];
       drawingData['datasets'] = [];
       drawingData['labels'] = [];
@@ -14,11 +14,10 @@
             dataset['pointStrokeColor'] = '#fff';
             dataset['pointHighlightFill'] = '#fff';
             dataset['pointHighlightStroke'] = 'rba(' + Math.round(Math.random() * 255) + ',' + Math.round(Math.random() * 255) + ',' + Math.round(Math.random() * 255) + ',' + '1)';
-            var dataContent = [];
-
-            dataset['data'] = dataContent;
+            dataset['data'] = data[i];
             drawingData['datasets'].push(dataset);
       }
 
-      console.log($('#histroyDrawing').attr('id'));
-})(jQuery);
+      var ctx = $('#histroyDrawing')[0].getContext('2d');
+      var chart = new Chart(ctx).Line(drawingData, { responsive: true });
+} 

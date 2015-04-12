@@ -20,12 +20,20 @@ var webServer = webApp.listen(8080, function() {
 var io = socket(webServer);
 var clients = {};
 var scores = {};
+var drawingPts = {};
+var count = 0;
+
 var candidates = JSON.parse(fs.readFileSync('./www/candidateData.JSON', 'utf8'));
 for(var element in candidates) {
       var obj = candidates[element];
       if(obj.hasOwnProperty('CandidateID')) {
-          scores[obj.CandidateID] = { 'Plus': 0, 'Minus': 0 }; 
+          scores[obj.CandidateID] = { 'Plus': 0, 'Minus': 0 };
+          drawingPts[obj.CandidateID] = [];
       }
+}
+
+for(var index in drawingPts) {
+      drawingPts[index][count] = 0;
 }
 
 io.on('connect', function(socket) {
@@ -33,8 +41,8 @@ io.on('connect', function(socket) {
       socket.on('do_connect', function(data) {
             clients[socket.id] = socket;
             console.log('socket connected(%s).', socket.id);
-            socket.emit('calcute', scores);
-            socket.broadcast.emit('calcute', scores);
+            socket.emit('calcute', scores, drawingPts);
+            socket.broadcast.emit('calcute', scores, drawingPts);
       });
 
       socket.on('disconnect', function() {
@@ -47,9 +55,18 @@ io.on('connect', function(socket) {
 
       socket.on('vote', function(data) {
             var candidateID = data.Candidate;
+            var which = count++;
             scores[candidateID].Plus += data.votePlus;
             scores[candidateID].Minus += data.voteMinus;
-            socket.emit('calcute', scores);
-            socket.broadcast.emit('calcute', scores);
+
+            for(var index in drawingPts) {
+                  if(index != candidateID) {
+                        drawingPts[index][which] = 0;
+                  }
+            }
+            
+            drawingPts[index][which] = scores[candidateID].Plus + scores[candidateID].Minus;
+            socket.emit('calcute', scores, drawingPts);
+            socket.broadcast.emit('calcute', scores, drawingPts);
       });
 });
