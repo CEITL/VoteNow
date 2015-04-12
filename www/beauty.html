@@ -24,7 +24,7 @@
             });
 
             socket.on('calcute', function(scores) {
-                  console.log(scores);
+//                  console.log(scores);
                   sumMinus= 0;
                   sumPlus = 0 ; 
                   for( var index in scores)
@@ -41,13 +41,13 @@
 
                               var Y = scores[index].Plus - scores[index].Minus ; 
                               var X = scores[index].Plus + scores[index].Minus ;
-                              console.log('%s, %s', $('#result_'+index ).parent().css('top'), $('#result_'+index ).parent().css('left'));
+//                              console.log('%s, %s', $('#result_'+index ).parent().css('top'), $('#result_'+index ).parent().css('left'));
                               $('#result_'+index ).parent().css('top', (resultHeight-Y/sumMax*resultHeight)+'px');
                               $('#result_'+index ).parent().css('left', 0.5*resultWidth+X/sumMax*resultWidth-35+'px');
 
-                              console.log('x: %s, y: %s', X, Y);
-                              console.log('max %s', sumMax);
-                              console.log('New: %s, %s', Y/sumMax*resultHeight, X/sumMax*resultWidth);
+//                              console.log('x: %s, y: %s', X, Y);
+//                              console.log('max %s', sumMax);
+//                              console.log('New: %s, %s', Y/sumMax*resultHeight, X/sumMax*resultWidth);
                               
                   }
 
@@ -58,11 +58,11 @@
                   console.log('socket disconnected');
             });
       </script>
-	<script src="js/drawVote.js" type="text/javascript"></script>
+	<script src="js/drawBeautyVote.js" type="text/javascript"></script>
 	<script src="js/vote.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$.getJSON( "candidateData.JSON", function( candidateArray ) {
+			$.getJSON( "./beautyCandidateData.json", function( candidateArray ) {
 				if(candidateArray.length > 0 )
 				{
 					var candidateTemplate = document.getElementById('candidate');
@@ -99,7 +99,7 @@
 				<div class="navbar-header">
 					<a class="navbar-brand" href="index.html">Vote! NOW</a>
 				</div>
-				<h4 class="navbar-text">晚餐吃什麼？</h4> 
+				<h4 class="navbar-text">男女的審美觀真的差好多，9位美眉你選誰?</h4> 
 			</div>
 		</nav>
 	</header>

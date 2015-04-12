@@ -9,7 +9,7 @@ var webApp = express();
 //Setup
 require('./route.js')(express, webApp);
 
-var webServer = webApp.listen(8080, function() {
+var webServer = webApp.listen(8081, function() {
       var host = webServer.address().address;
       var port = webServer.address().port;
 
@@ -20,7 +20,7 @@ var webServer = webApp.listen(8080, function() {
 var io = socket(webServer);
 var clients = {};
 var scores = {};
-var candidates = JSON.parse(fs.readFileSync('./www/candidateData.JSON', 'utf8'));
+var candidates = JSON.parse(fs.readFileSync('./www/beautyCandidateData.json', 'utf8'));
 for(var element in candidates) {
       var obj = candidates[element];
       if(obj.hasOwnProperty('CandidateID')) {
