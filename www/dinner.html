@@ -33,17 +33,23 @@
                   	sumMinus += scores[index].Minus;
                   }
 
-                  var sumMax = sumPlus > Math.abs(sumPlus)?sumPlus:Math.abs(sumMinus);
+                  var sumMax = sumPlus > Math.abs(sumMinus)?sumPlus:Math.abs(sumMinus);
                   var resultHeight = $('#result').attr('height');
                   var resultWidth = $('#result').attr('width');
                   for( var index in scores)
                   {
-                  		var Y = scores[index].Plus - scores[index].minus ; 
-                  		var X = scores[index].Plus + scores[index].minus ; 
-                  		$('#result_'+index ).parent().css('top', Y/sumMax*resultHeight+'px')  ;
-                  		$('#result_'+index ).parent().css('left', X/sumMax*resultWidth+'px')  ;
+                        if(index == 2) {
+                              var Y = scores[index].Plus - scores[index].Minus ; 
+                              var X = scores[index].Plus + scores[index].Minus ;
+                              console.log('%s, %s', $('#result_'+index ).parent().css('top'), $('#result_'+index ).parent().css('left'));
+                              $('#result_'+index ).parent().css('top', Y/sumMax*resultHeight+'px');
+                              $('#result_'+index ).parent().css('left', X/sumMax*resultWidth+'px');
 
-                  		console.log($('#result_'+index ).parent()) ;
+                              console.log('x: %s, y: %s', X, Y);
+                              console.log('max %s', sumMax);
+                              console.log('New: %s, %s', Y/sumMax*resultHeight, X/sumMax*resultWidth);
+                        }
+                              
                   }
 
 
