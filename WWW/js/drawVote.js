@@ -12,7 +12,7 @@ $(document).ready(function(){
 	context.font = 'bold 100pt Calibri';
 	context.fillStyle = 'white';
 	context.textAlign = 'right';
-    context.fillText('+1', canvas.width, canvas.height);
+      context.fillText('+1', canvas.width, canvas.height);
 
 
 	var neutralArea = document.getElementById('neutralArea');
@@ -35,8 +35,22 @@ $(document).ready(function(){
 	context.font = 'bold 100pt Calibri';
 	context.fillStyle = 'white';
 	context.textAlign = 'right';
-    context.fillText('-1', canvas.width, canvas.height);
+      context.fillText('-1', canvas.width, canvas.height);
 
+      var canvas = document.getElementById('result');
+      var context = canvas.getContext('2d');
+      context.rect( 0, 0, canvas.width, canvas.height);
+      context.fillStyle = '#E6E6E6';
+      context.fill();
+
+      context.beginPath();
+      context.moveTo(20, canvas.height/2);
+      context.lineTo(canvas.width-20, canvas.height/2);
+      context.lineWidth = 10;
+
+      // set line color
+      context.strokeStyle = ‘#ff0000’;
+      context.stroke();
 });
 
 function drawCandidate(id, name, img) {
